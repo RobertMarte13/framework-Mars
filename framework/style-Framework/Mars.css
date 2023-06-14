@@ -1,0 +1,1807 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}details,main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+/* *************************
+ * Configuración. Setting. *
+* ************************* */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* *************
+ * Variables. *
+* ************ */
+:root {
+  --font: Arial, Helvetica, sans-serif;
+  --font-menu: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --background: #f1f1f1;
+  --broad: 1200px;
+  --font-size: 18px;
+}
+
+/* ************************************
+ * Estilos Generales. General Styles. *
+* *********************************** */
+body {
+  background: var(--background);
+  font-size: 16px;
+  font-family: var(--font);
+}
+
+p {
+  line-height: 27px;
+}
+
+img {
+  vertical-align: top;
+  width: 100%;
+}
+
+/* ************************
+ * Contenedor o Caja. Container or Box. *
+* ************************ */
+.box {
+  max-width: 90%;
+  width: var(--broad);
+  margin: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.box-full {
+  max-width: 100%;
+  margin: auto;
+  margin-bottom:30px;
+  overflow: hidden;
+}
+
+/* ************************
+ * Componentes. Components. *
+* ************************ */
+/* Este componente se utiliza para hacer caja internas que ayuden a crear
+contenido más facilmente. La sombra es opcional y se puede quitar.*/
+.son-box {
+  padding: 40px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+/*
+* Menu Pc standar
+*/
+.h-menu{
+  height: 20px;
+  padding: 40px;
+}
+
+.links {
+  text-transform: capitalize;
+  padding: 10px 20px;
+  text-decoration: none;
+  /*color: #242424;*/
+  font-size: var(--font-size);
+  font-family: var(--font-menu);
+  transition: all .4s ease;  
+}
+
+.links:hover {
+  color: #2d6fff;
+}
+
+/* ? Estilos del header hamburger */
+.header-hamburger {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  background: white;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.navbar-Primary-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-hamburger {
+  width: 100%;
+  padding: 30px;  
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Formas de ocultar el menu */
+.header-trasition-1 {
+  left: 0;
+  opacity: 1;
+  transform: translateX(-100%);
+  transition: all .9s ease;
+}
+
+.header-trasition-2 {
+  right: 0;
+  opacity: 1;
+  transform: translateX(100%);
+  transition: all .9s ease;
+}
+
+/* Menu Hamburger */
+.menu-hamburger {
+  position: fixed;
+  height: 80px;
+  border-radius: 50%;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.position-hamburger-1 {
+  top: 25px;
+  right: 25px;
+  width: 80px;
+}
+
+.position-hamburger-2 {
+  top: 25px;
+  left: 25px;
+  width: 80px;
+}
+
+.position-hamburger-3 {
+  bottom: 25px;
+  right: 25px;
+  width: 80px;
+}
+
+.position-hamburger-4 {
+  bottom: 25px;
+  left: 25px;
+  width: 80px;
+}
+
+.btn-hamburger, .btn-hamburger-2 {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+  transition: all .3s ease-in;
+}
+
+.btn-x, .btn-x-2 {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.1);
+  transition: all .3s ease-in;
+  display: none;
+}
+
+/*menu hamburguesa sky config*/
+.links-hamburger-sky {
+  width: 100%;
+  padding: 30px;  
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/*menu hamburguesa dark config*/
+.links-hamburger-dark {
+  width: 100%;
+  padding: 30px;  
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Hover menus */
+.links-hamburger:hover {
+  background: #dfdfdf;
+}
+
+.links-hamburger-sky:hover {
+  background: #29b4ff;
+}
+
+.links-hamburger-dark:hover {
+  background: #f36d3c;
+}
+
+.btn-hamburger, .btn-hamburger-2:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-x, .btn-x-2:hover {
+  color:white;
+  box-shadow: 0px 0px 2px 4px rgba(255, 0, 0, 0.1);
+}
+
+/* Media query de los componentes */
+@media screen and (max-width: 992px) {
+  /* Aquí se ocultara el menu pc */
+  .menu-pc {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  } 
+
+  /* Aquí se mostrar el menu hamburger */
+
+  .menu-hamburger {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* ? *****************************
+ ? Tipos de botones. buttons type. 
+? *******************************/
+
+/* ? Boton estandar.*/
+.Primary-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #e4e4e4;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.Primary-btn:hover {
+  background: #d8d8d8;
+}
+
+/*Boton Secundario*/
+.secondary-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #95abb9;
+  border: 1px solid #8599a5;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.secondary-btn:hover {
+  background: #8599a5;
+}
+
+/*Boton tersario*/
+.tertiary-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #255cd3;
+  border: 1px solid #2354c0;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.tertiary-btn:hover {
+  background: #2354c0;
+}
+
+/*Boton Informacion*/
+.info-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #FFC300;
+  border: 1px solid #FFC300;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.info-btn:hover {
+  background: #eeb600;
+}
+
+/*Boton Advertencia*/
+.warning-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #FF5733;
+  border: 1px solid #FF5733;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.warning-btn:hover {
+  background: #e7502e;
+}
+
+/*Boton Peligro*/
+.danger-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #C70039;
+  border: 1px solid #C70039;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.danger-btn:hover {
+  background: #b80034;
+}
+
+/*Boton Acceso*/
+.login-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #14c222;
+  border: 1px solid #12ac1f;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.login-btn:hover {  
+  background: #12ac1f;
+}
+
+
+/*Boton Claro.*/
+.light-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.light-btn:hover {  
+  background: #f5f5f5;
+}
+
+/*Boton cerrar sesion.*/
+.dark-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #242424;
+  border: 1px solid #242424;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.logout-btn:hover {  
+  background: #242424;
+}
+
+/*Boton Oscuro.*/
+.link-btn {
+  color: #4c87ac;
+  text-decoration: underline;
+  font-size: var(--font);
+  background: none;
+  border: 1px solid #4c87ac;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.link-btn:hover {  
+  /*background: ;*/
+}
+
+/*Boton link.*/
+.logout-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.logout-btn:hover {  
+  background: #e00000;
+}
+
+/*? Boton mmlas.*/
+.mml-Primary-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #ebebeb;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-Primary-btn:hover {
+  background: #d8d8d8;
+}
+
+/*Boton Secundario*/
+.mml-secondary-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #9cbed3;
+  border: 1px solid #91b0c4;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-secondary-btn:hover {
+  background: #91b0c4;
+}
+
+/*Boton tersario*/
+.mml-tertiary-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #255cd3;
+  border: 1px solid #2354c0;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-tertiary-btn:hover {
+  background: #2354c0;
+}
+
+/*Boton Informacion*/
+.mml-info-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #ffe600;
+  border: 1px solid #f3db00;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-info-btn:hover {
+  background: #f3db00;
+}
+
+/*Boton Advertencia*/
+.mml-warning-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #ffc107;
+  border: 1px solid #eeb406;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-warning-btn:hover {
+  background: #eeb406;
+}
+
+/*Boton Peligro*/
+.mml-danger-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #dc3545;
+  border: 1px solid #c5303f;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-danger-btn:hover {
+  background: #c5303f;
+}
+
+/*Boton Acceso*/
+.mml-login-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #14c222;
+  border: 1px solid #12ac1f;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-login-btn:hover {  
+  background: #12ac1f;
+}
+
+
+/*Boton Claro.*/
+.mml-light-btn {
+  color: #242424;
+  font-size: var(--font);
+  background: #f0f0f0;
+  border: 1px solid #e9e9e9;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-light-btn:hover {  
+  background: #e9e9e9;
+}
+
+/*Boton cerrar sesion.*/
+.mml-dark-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-logout-btn:hover {  
+  /* background: #242424; */
+}
+
+/*Boton Oscuro.*/
+.mml-link-btn {
+  color: #4c87ac;
+  text-decoration: underline;
+  font-size: var(--font);
+  background: none;
+  border: 1px solid #4c87ac;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-link-btn:hover {  
+  /*background: ;*/
+}
+
+/*Boton link.*/
+.mml-logout-btn {
+  color: whitesmoke;
+  font-size: var(--font);
+  background: #ff3300;
+  border: 1px solid #f00000;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.mml-logout-btn:hover {  
+  background: #f00000;
+}
+
+/*
+  ? Botones agrupados.
+*/
+
+/* Tamaños para los botones grupales */
+.box-group-btn
+.group-btn-lg {
+  padding: 25px;
+}
+
+.box-group-btn
+.group-btn-md {
+  padding: 17px;
+}
+
+.box-group-btn
+.group-btn-lt {
+  padding: 14px;
+}
+
+/* Estilos para los botones grupales */
+.box-group-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-btn {
+  color: white;
+  background: #2d6fff;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all .4s ease-in;
+}
+
+/* Botones grupales links */
+.group-btn-links {
+  color: #2d6fff;
+  padding: 10px;
+  background: none;
+  border: 1px solid #2d6fff;
+  cursor: pointer;
+  transition: all .4s ease-in;
+}
+
+.group-btn-left {
+  border-radius: 10px 0 0;
+}
+
+.group-btn-middle {
+  padding: 10px 25px;
+}
+
+.group-btn-right {
+  border-radius: 0 10px 0 0;
+}
+
+.group-btn:hover {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, .2);
+  background: #255cd3;
+}
+
+/* Hover del group btn links */
+.group-btn-links:hover {
+  color: white;
+  background: #2d6fff;
+}
+
+/* ? *****************************
+ ? Letreros. Badges. *
+? ***************************** */
+
+.badges {
+  margin: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.Primary-badges {
+  background: #2354c0;
+  color: white;
+  border-radius: 25px;
+}
+
+.secondary-badges {
+  background: #a623c0;
+  color: white;
+  border-radius: 25px;
+}
+
+.tertiary-badges {
+  background: #14c222;
+  color: white;
+  border-radius: 25px;
+}
+
+.info-badges {
+  background: #00d9ff;
+  color: white;
+  border-radius: 25px;
+}
+
+.danger-badges {
+  background: #ff3300;
+  color: white;
+  border-radius: 25px;
+}
+
+.warning-badges {
+  background: #ffc107;
+  color: white;
+  border-radius: 25px;
+}
+
+.light-badges {
+  background: #e9e9e9;
+  color: #242424;
+  border-radius: 25px;
+}
+
+.dark-badges {
+  background: #242424;
+  color: white;
+  border-radius: 25px;
+}
+
+/*Medidas de letreros. */
+.badges-lg {font-size: 32px;}
+.badges-md {font-size: 24px;}
+.badges-lt {font-size: 18px;}
+.badges-sm {font-size: 12px;}
+
+/* ************************
+ * Desplegable. Dropdown. *
+* *********************** */
+/* Dropdown simple */
+.dropdown-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 150px;
+  /*Ponerselo cuando se ponga el display en block*/
+  /* min-height: 150px; */
+}
+
+.dropdown-btn {
+  background: #2d6fff;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.dropdown-btn-up {
+  background: #2d6fff;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.content-link-dropdown {
+  margin-top: 5px;
+  background: whitesmoke;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  display: none;
+}
+
+.ul-dropdown {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.ul-dropdown li {
+  width: 100%;
+  padding: 10px;
+}
+
+.links-dropdown {
+  width: 100%;
+  text-decoration: none;
+  color: #242424;
+}
+
+.ul-dropdown li:hover {
+  background: #d1d1d1;
+}
+
+/*Boton secundario.*/
+.dropdown-btn-secondary {
+  background: #14c222;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.dropdown-btn-up-secondary {
+  background: #14c222;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.content-link-dropdown-secondary {
+  margin-top: 5px;
+  background: whitesmoke;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  display: none;
+}
+
+.ul-dropdown-secondary {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.links-dropdown-secondary {
+  width: 100%;
+  text-decoration: none;
+  color: #242424;
+}
+
+.ul-dropdown-secondary li:hover {
+  background: #d1d1d1;
+}
+
+/*Boton tertiary.*/
+.dropdown-btn-tertiary {
+  background: #242424;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.dropdown-btn-up-tertiary {
+  background: #242424;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.content-link-dropdown-tertiary {
+  margin-top: 5px;
+  background: whitesmoke;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  display: none;
+}
+
+.ul-dropdown-tertiary {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.links-dropdown-tertiary {
+  width: 100%;
+  text-decoration: none;
+  color: #242424;
+}
+
+.ul-dropdown-tertiary li:hover {
+  background: #d1d1d1;
+}
+
+
+/*Boton fourth.*/
+.dropdown-btn-fourth {
+  background: #ffc107;
+  border: none;
+  color: #242424;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.dropdown-btn-up-fourth {
+  background: #ffc107;
+  border: none;
+  color: #242424;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.content-link-dropdown-fourth {
+  margin-top: 5px;
+  background: whitesmoke;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  display: none;
+}
+
+.ul-dropdown-fourth {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.links-dropdown-fourth {
+  width: 100%;
+  text-decoration: none;
+  color: #242424;
+}
+
+.ul-dropdown-fourth li:hover {
+  background: #d1d1d1;
+}
+
+/*Boton fifth.*/
+.dropdown-btn-fifth {
+  background: #ff3300;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.dropdown-btn-up-fifth {
+  background: #ff3300;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.content-link-dropdown-fifth {
+  margin-top: 5px;
+  background: whitesmoke;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  display: none;
+}
+
+.ul-dropdown-fifth {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.links-dropdown-fifth {
+  width: 100%;
+  text-decoration: none;
+  color: #242424;
+}
+
+.ul-dropdown-fifth li:hover {
+  background: #d1d1d1;
+}
+
+
+
+
+/* ******************************
+ * Caja División. box division. *
+* ***************************** */
+/* Esto es para usar grid o es la equivalencia de grid*/
+.box-d {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+/*
+ * Tamaño grande - Computadoras y tv.
+*/
+
+/*
+Este codigo sirve para crear columnas en los box-d.
+*/
+.bg-box-1 {grid-template-columns: repeat(1, 1fr);}
+.bg-box-2 {grid-template-columns: repeat(2, 1fr);}
+.bg-box-3 {grid-template-columns: repeat(3, 1fr);}
+.bg-box-4 {grid-template-columns: repeat(4, 1fr);}
+.bg-box-5 {grid-template-columns: repeat(5, 1fr);}
+.bg-box-6 {grid-template-columns: repeat(6, 1fr);}
+.bg-box-7 {grid-template-columns: repeat(7, 1fr);}
+.bg-box-8 {grid-template-columns: repeat(8, 1fr);}
+.bg-box-9 {grid-template-columns: repeat(9, 1fr);}
+.bg-box-10 {grid-template-columns: repeat(10, 1fr);}
+.bg-box-11 {grid-template-columns: repeat(11, 1fr);}
+.bg-box-12 {grid-template-columns: repeat(12, 1fr);}
+
+/* Especificando cuando se quiere que ocupe una columna*/
+.occupation-box-1 {grid-column: span 1;}
+.occupation-box-2 {grid-column: span 2;}
+.occupation-box-3 {grid-column: span 3;}
+.occupation-box-4 {grid-column: span 4;}
+.occupation-box-5 {grid-column: span 5;}
+.occupation-box-6 {grid-column: span 6;}
+.occupation-box-7 {grid-column: span 7;}
+.occupation-box-8 {grid-column: span 8;}
+.occupation-box-9 {grid-column: span 9;}
+.occupation-box-10 {grid-column: span 10;}
+.occupation-box-11 {grid-column: span 11;}
+.occupation-box-12 {grid-column: span 12;}
+
+
+/* Tamaño de Tabletas y algunos moviles. */
+@media screen and (max-width: 992px) {
+  .md-box-1 {grid-template-columns: repeat(1, 1fr);}
+  .md-box-2 {grid-template-columns: repeat(2, 1fr);}
+  .md-box-3 {grid-template-columns: repeat(3, 1fr);}
+  .md-box-4 {grid-template-columns: repeat(4, 1fr);}
+  .md-box-5 {grid-template-columns: repeat(5, 1fr);}
+  .md-box-6 {grid-template-columns: repeat(6, 1fr);}
+  .md-box-7 {grid-template-columns: repeat(7, 1fr);}
+  .md-box-8 {grid-template-columns: repeat(8, 1fr);}
+  .md-box-9 {grid-template-columns: repeat(9, 1fr);}
+  .md-box-10 {grid-template-columns: repeat(10, 1fr);}
+  .md-box-11 {grid-template-columns: repeat(11, 1fr);}
+  .md-box-12 {grid-template-columns: repeat(12, 1fr);}  
+
+  .md-occupation-box-1 {grid-column: span 1;}
+  .md-occupation-box-2 {grid-column: span 2;}
+  .md-occupation-box-3 {grid-column: span 3;}
+  .md-occupation-box-4 {grid-column: span 4;}
+  .md-occupation-box-5 {grid-column: span 5;}
+  .md-occupation-box-6 {grid-column: span 6;}
+  .md-occupation-box-7 {grid-column: span 7;}
+  .md-occupation-box-8 {grid-column: span 8;}
+  .md-occupation-box-9 {grid-column: span 9;}
+  .md-occupation-box-10 {grid-column: span 10;}
+  .md-occupation-box-11 {grid-column: span 11;}
+  .md-occupation-box-12 {grid-column: span 12;}
+}
+
+/* Tamaño para moviles. */
+@media screen and (max-width: 576px) {
+  .lt-box-1 {grid-template-columns: repeat(1, 1fr);}
+  .lt-box-2 {grid-template-columns: repeat(2, 1fr);}
+  .lt-box-3 {grid-template-columns: repeat(3, 1fr);}
+  .lt-box-4 {grid-template-columns: repeat(4, 1fr);}
+  .lt-box-5 {grid-template-columns: repeat(5, 1fr);}
+  .lt-box-6 {grid-template-columns: repeat(6, 1fr);}
+  .lt-box-7 {grid-template-columns: repeat(7, 1fr);}
+  .lt-box-8 {grid-template-columns: repeat(8, 1fr);}
+  .lt-box-9 {grid-template-columns: repeat(9, 1fr);}
+  .lt-box-10 {grid-template-columns: repeat(10, 1fr);}
+  .lt-box-11 {grid-template-columns: repeat(11, 1fr);}
+  .lt-box-12 {grid-template-columns: repeat(12, 1fr);}  
+
+  .lt-occupation-box-1 {grid-column: span 1;}
+  .lt-occupation-box-2 {grid-column: span 2;}
+  .lt-occupation-box-3 {grid-column: span 3;}
+  .lt-occupation-box-4 {grid-column: span 4;}
+  .lt-occupation-box-5 {grid-column: span 5;}
+  .lt-occupation-box-6 {grid-column: span 6;}
+  .lt-occupation-box-7 {grid-column: span 7;}
+  .lt-occupation-box-8 {grid-column: span 8;}
+  .lt-occupation-box-9 {grid-column: span 9;}
+  .lt-occupation-box-10 {grid-column: span 10;}
+  .lt-occupation-box-11 {grid-column: span 11;}
+  .lt-occupation-box-12 {grid-column: span 12;}
+}
+
+/* ************************
+ * Fuentes. Fonts. *
+* ************************ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+.ttl-1 {
+  font-weight: 700;
+  font-size: 64px; 
+}
+
+.ttl-2 {
+  font-weight: 700;
+  font-size: 54px; 
+}
+
+.ttl-3 {
+  font-weight: 700;
+  font-size: 44px; 
+}
+
+.ttl-4 {
+  font-weight: 700;
+  font-size: 34px; 
+}
+
+.ttl-5 {
+  font-weight: 700;
+  font-size: 24px; 
+}
+
+/* ***********************************************
+ * Movimientos de Fuentes. Movements of Sources. *
+* ********************************************** */
+/* Texto centrado */
+.font-c {
+  text-align: center;
+}
+
+.left-paragraph {
+  text-align: left;
+}
+
+.right-paragraph {
+  text-align: right;
+}
+
+.justify-paragraph {
+  text-align: justify;
+}
+
+/* ******************************************
+ * Profundidad de caja(z-index). Box depth. *
+* ***************************************** */
+.box-depth-1 {
+  z-index: 1000;
+}
+
+.box-depth-2 {
+  z-index: 1020;
+}
+
+.box-depth-3 {
+  z-index: 1030;
+}
+
+.box-depth-4 {
+  z-index: 1040;
+}
+
+.box-depth-5 {
+  z-index: 1050;
+}
+
+.box-depth-6 {
+  z-index: 1060;
+}
+
+.box-depth-7 {
+  z-index: 1070;
+}
+
+.box-depth-8 {
+  z-index: 1080;
+}
+
+.box-depth-9 {
+  z-index: 1090;
+}
+
+.box-depth-10 {
+  z-index: 1100;
+}
+
+/* ****************************************
+ * Colores de Fuentes. Colors of Sources. *
+* *************************************** */
+.color-red {
+  color: #ff0000;
+}
+
+.color-redDark {
+  color: #8b0000;
+}
+
+.color-yellow {
+  color: #ffff00;
+}
+
+.color-yellowDark {
+  color: #8b8b00;
+}
+
+.color-green {
+  color: #008000;
+}
+
+.color-greenYellow {
+  color: #adff2f;
+}
+
+.color-greenDark {
+  color: #006400;
+}
+
+.color-brown {
+  color: #a52a2a;
+}
+
+.color-brownDark {
+  color: #882222;
+}
+
+.color-white {
+  color: #ffffff;
+}
+
+.color-gray {
+  color: #808080;
+}
+
+.color-grayDark {
+  color: #242424;
+}
+
+.color-black {
+  color: #000000;
+}
+
+.color-blue {
+  color: #0000ff;
+}
+
+.color-cyan {
+  color: #00ffff;
+}
+
+.color-cyanDark {
+  color: #008b8b;
+}
+
+
+.color-blueDark {
+  color: #00008b;
+}
+
+.color-orange {
+  color: #ffa500;
+}
+
+.color-orangeDark {
+  color: #ff8c00;
+}
+
+.color-orangeRed {
+  color: #ff4500;
+}
+
+.color-chocolate{
+  color: #d2691e;
+}
+
+.color-salmon {
+  color: salmon;
+}
+
+.color-pink {
+  color: #ff72c9;
+}
+
+.color-violet {
+  color: #ee82ee;
+}
+
+.color-violetDark {
+  color: #9400d3;
+}
+
+.color-purple {
+  color: purple;
+}
+
+.color-skyblue {
+  color: skyblue;
+}
+
+.color-blueGrayDark {
+  color: darkslategray;
+}
+
+/* *******************************
+ * Colores para fondos. colors for backgrounds. *
+* ****************************** */
+
+.bg-red {
+  background: #ff0000;
+}
+
+.bg-redDark {
+  background: #8b0000;
+}
+
+.bg-yellow {
+  background: #ffff00;
+}
+
+.bg-yellowDark {
+  background: #8b8b00;
+}
+
+.bg-green {
+  background: #008000;
+}
+
+.bg-greenYellow {
+  background: #adff2f;
+}
+
+.bg-greenDark {
+  background: #006400;
+}
+
+.bg-brown {
+  background: #a52a2a;
+}
+
+.bg-brownDark {
+  background: #882222;
+}
+
+.bg-white {
+  background: #ffffff;
+}
+
+.bg-gray {
+  background: #808080;
+}
+
+.bg-grayDark {
+  background: #242424;
+}
+
+.bg-black {
+  background: #000000;
+}
+
+.bg-blue {
+  background: #0000ff;
+}
+
+.bg-cyan {
+  background: #00ffff;
+}
+
+.bg-cyanDark {
+  background: #008b8b;
+}
+
+.bg-blueDark {
+  background: #00008b;
+}
+
+.bg-orange {
+  background: #ffa500;
+}
+
+.bg-orangeDark {
+  background: #ff8c00;
+}
+
+.bg-orangeRed {
+  background: #ff4500;
+}
+
+.bg-chocolate{
+  background: #d2691e;
+}
+
+.bg-salmon {
+  background: salmon;
+}
+
+.bg-pink {
+  background: #ff72c9;
+}
+
+.bg-violet {
+  background: #ee82ee;
+}
+
+.bg-violetDark {
+  background: #9400d3;
+}
+
+.bg-purple {
+  background: purple;
+}
+
+.bg-skyblue {
+  background: skyblue;
+}
+
+.bg-blueGrayDark {
+  background: darkslategray;
+}
+
+/* *******************************
+ * Tamaño de imagen. Image size. *
+* ****************************** */
+.img-size-full {
+  width: 100%;
+  height: 100%;
+}
+
+.img-size-1200 {
+  width: 1200px;
+  height: auto;
+}
+
+.img-size-720 {
+  width: 720px;
+  height: auto;
+}
+
+.img-size-420 {
+  width: 420px;
+  height: auto;
+}
+
+.img-size-320 {
+  width: 320px;
+  height: auto;
+}
+
+.img-size-290 {
+  width: 290px;
+  height: auto;
+}
+
+.img-size-144 {
+  width: 144px;
+  height: auto;
+}
+
+.img-square-1200 {
+  width: 1200px;
+  height: 1200px;
+}
+
+.img-square-720 {
+  width: 720px;
+  height: 720px;
+}
+
+.img-square-420 {
+  width: 420px;
+  height: 420px;
+}
+
+.img-square-320 {
+  width: 320px;
+  height: 320px;
+}
+
+.img-square-290 {
+  width: 290px;
+  height: 290px;
+}
+
+.img-square-144 {
+  width: 144px;
+  height: 144px;
+}
+
+.img-circle-1200 {
+  width: 1200px;
+  height: 1200px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-circle-720 {
+  width: 720px;
+  height: 720px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-circle-420 {
+  width: 420px;
+  height: 420px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-circle-320 {
+  width: 320px;
+  height: 320px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-circle-290 {
+  width: 290px;
+  height: 290px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-circle-144 {
+  width: 144px;
+  height: 144px;
+  border: none;
+  border-radius: 50%;
+}
+
+.img-logo {
+  width: 40px;
+  height: 40px;
+}
+
+/*Esto se puede quitar e incluso editar.*/
+@media screen and (max-width: 992px) {
+  .content-logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .img-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ******************************************
+ * opacidad. opacity. *
+* ***************************************** */
+.opacity-1 {
+  opacity: 1;
+}
+
+.opacity-09 {
+  opacity: 0.9;
+}
+
+.opacity-08 {
+  opacity: 0.8;
+}
+
+.opacity-07 {
+  opacity: 0.7;
+}
+
+.opacity-06 {
+  opacity: 0.6;
+}
+
+.opacity-05 {
+  opacity: 0.5;
+}
+
+.opacity-04 {
+  opacity: 0.4;
+}
+
+.opacity-03 {
+  opacity: 0.3;
+}
+
+.opacity-02 {
+  opacity: 0.2;
+}
+
+.opacity-01 {
+  opacity: 0.1;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+/* ******************************************
+ * Tipos de posiciones. types of positions. *
+* ***************************************** */
+.pt-relative {
+  position: relative;
+}
+
+.pt-absolute {
+  position: absolute;
+}
+
+.pt-inherit {
+  position: inherit;
+}
+
+.pt-fixed {
+  position: fixed;
+}
+
+.pt-sticky {
+  position: sticky;
+}
+
+.pt-static {
+  position: static;
+}
+
+.pt-initial {
+  position: initial;
+}
+
+.pt-unset{
+  position: unset;
+}
+
+/* *************************************
+ * Tipos de sombras. types of shadows. *
+* ************************************ */
+/* Sombras largas */
+.shw-strong-bg {
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, .9);
+}
+
+.shw-light-bg {
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, .5);
+}
+
+.shw-ultra-light-bg {
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, .2);
+}
+
+/* Sombras medias */
+.shw-strong-md {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .9);
+}
+
+.shw-light-md {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.shw-ultra-light-md {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .2);
+}
+
+/* Sombras pequeñas */
+.shw-strong-lt {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .9);
+}
+
+.shw-light-lt {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .5);
+}
+
+.shw-ultra-light-lt {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+}
+
+/* ********************************************
+ * Tipos de visibilidad. types of visibility. *
+* ******************************************* */
+.v-hidden {
+  visibility: hidden;
+}
+
+.v-visible {
+  visibility: visible;
+}
+
+.v-collapse {
+  visibility: collapse;
+}
+
+.v-inherit {
+  visibility: inherit;
+}
+
+.v-initial {
+  visibility: initial;
+}
+
+/* ***************************************
+ * Tipos de pantallas. types of display. *
+* ************************************** */
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.display-contents {
+  display: contents;
+}
+
+.display-grid {
+  display: grid;
+}
+.display-initial {
+  display: initial;
+}
+
+.display-inherit {
+  display: inherit;
+}
+
+.display-unset {
+  display: unset;
+}
+
+/* ***************************************
+ * Caja flexible. Flexbox. *
+* ************************************** */
+/* Justificación de contenido */
+.j-content-center {
+  justify-content: center;
+}
+
+.j-content-between {
+  justify-content: space-between;
+}
+
+.j-content-around {
+  justify-content: space-around;
+}
+
+.jc-evenly {
+  justify-content: space-evenly;
+}
+
+/* Aliniamiento en el eje y o alineamiento de items */
+.align-center {
+  align-items: center;
+}
+
+.a-items-end {
+  align-items: end;
+}
+
+.a-items-start {
+  align-items: start;
+}
+
+.a-items-flex-end {
+  align-items: flex-end;
+}
+
+.a-items-flex-start {
+  align-items: flex-start;
+}
+
+.a-items-stretch {
+  align-items: stretch;
+}
+
+.a-items-baseline {
+  align-items: baseline;
+}
+
+
+/* *****************
+ * Tipos de hover. *
+* *****************/
+
+.hover:hover {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #00d9ff;
+}
